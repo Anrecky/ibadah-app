@@ -7,6 +7,8 @@ export default {
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
+        "./node_modules/flowbite/**/*.js",
+        "./resources/**/*.js",
     ],
 
     theme: {
@@ -18,5 +20,5 @@ export default {
     },
     darkMode: "class",
 
-    plugins: [forms],
+    plugins: [forms, require("flowbite/plugin")],
 };
