@@ -1,17 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Livewire\ManageUser;
 
 Route::view('/', 'welcome');
 
@@ -23,4 +13,10 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    // Manage User Routes
+    // Route::get('kelola-user', ManageUser::class)->name('manage-user.index');
+    Route::get('kelola-user', ManageUser::class)->name('manage-user.index');
+});
+
+require __DIR__ . '/auth.php';
